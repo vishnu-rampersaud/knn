@@ -59,7 +59,7 @@ def find_xmin_xmax(training_dataset):
                 elif train_row[i] > xmax: 
                     xmax = train_row[i]
     else: 
-        skip_class_col = class_col
+        skip_class_col = class_col + 1
         for train_row in training_dataset: 
             # omit the classification column
             for i in range(skip_class_col, len(train_row)): 
@@ -80,7 +80,7 @@ def normalize(dataset, x_min_max):
             for j in range(len(dataset[i])-skip_class_col):  
                 dataset[i][j] = (dataset[i][j] - x_min_max[0]) / (x_min_max[1] - x_min_max[0])
     else: 
-        skip_class_col = class_col
+        skip_class_col = class_col + 1
         for i in range(len(dataset)):
             # omit the classification column 
             for j in range(skip_class_col, len(dataset[i])):  
@@ -99,7 +99,7 @@ def euclidean_distance(test_row, training_row):
             distance += ((test_row[i] - training_row[i])**2)
 
     else: 
-        skip_class_col = class_col
+        skip_class_col = class_col + 1
         for i in range(skip_class_col, len(test_row)): 
             distance += ((test_row[i] - training_row[i])**2)
     
