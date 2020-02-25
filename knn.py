@@ -233,7 +233,7 @@ def find_best_k(training_datset, val_dataset):
                 majority_class = find_majority_class(distance_of_all_neighbors)
             
             # use weighted knn to predict the class of the row     
-            prediction = unweighted_classification(distance_of_all_neighbors, majority_class, k)
+            prediction = weighted_classification(distance_of_all_neighbors, majority_class, k)
             if (prediction == val_dataset[i][class_col]): 
                 success_count_for_k += 1
 
@@ -281,7 +281,7 @@ def run_knn_for_k(training_dataset, test_dataset, k):
             majority_class = find_majority_class(distance_of_all_neighbors)
         
         # use weighted knn to predict the class of the row    
-        prediction = unweighted_classification(distance_of_all_neighbors, majority_class, k)
+        prediction = weighted_classification(distance_of_all_neighbors, majority_class, k)
         if (prediction == test_dataset[i][class_col]): 
             success += 1
 
