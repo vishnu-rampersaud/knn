@@ -205,6 +205,7 @@ def load_file (filename, dataset):
     for line in data_file: 
         if not line: 
             continue
+        line = line.strip()
         data_row = line.split(",")
         data_row = data_row[1:-1]
 
